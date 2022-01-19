@@ -20,12 +20,16 @@
  + ./Framework/*InitiAllSettings* - Load configuration data from Config.xlsx file and from assets
  + ./Framework/*GetAppCredential* - Retrieve credentials from Orchestrator assets or local Windows Credential Manager
  + ./Framework/*InitiAllApplications* - Open and login to applications used throughout the process
+ + ./Framework/*OpenIBGE* - Open ibge website
+ + ./Framework/*InsertQueueItem* - Check, delete new and old failure items and new items that have not yet completed successfully
 
 2. **GET TRANSACTION DATA**
  + ./Framework/*GetTransactionData* - Fetches transactions from an Orchestrator queue defined by Config("OrchestratorQueueName") or any other configured data source
 
 3. **PROCESS TRANSACTION**
- + *Process* - Process trasaction and invoke other workflows related to the process being automated 
+ + *./Framework/Process* - It extracts CNAE data from the IBGE website, processes it and makes it available
+ + *./Framework/ExtractionData* - Extract the data
+ +  *./Framework/CustomizeData* - Calls python resource to handle the data
  + ./Framework/*SetTransactionStatus* - Updates the status of the processed transaction (Orchestrator transactions by default): Success, Business Rule Exception or System Exception
 
 4. **END PROCESS**
